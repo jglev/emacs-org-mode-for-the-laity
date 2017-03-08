@@ -246,10 +246,10 @@ Return a list of installed packages or nil for every skipped package."
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Custom functions for different writing-modes (e.g., for writing prose distraction-free, and making Emacs behave like a more "normal" text editor)
-;; The 'jacob/' in the function names is just to make them easier to search for. You can use your own name or delete that part of the function name)
+;; The 'laity/' in the function names is just to make them easier to search for. You can use your own name or delete that part of the function name)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-(defun jacob/prose-writing-mode ()
+(defun laity/prose-writing-mode ()
   "Enter writing mode, turning some distractions off.
   
 This function makes the following changes:
@@ -357,7 +357,7 @@ This function makes the following changes:
 (add-hook 'org-mode-hook ;; When entering into org-mode...
 	(lambda ()
 		;; Define the function:
-        (defun org-id-paste-link ()
+        (defun laity/org-id-paste-link ()
           "Paste an org-mode link to another line (or other file listed in org-agenda-files), with the prefix \"id:\".
 
         This function assumes that the last thing that you did before running this function was going to the target location of the link and running M-x org-id-copy, which will generate (if necessary) and then copy an ID for that line of org-mode document."
@@ -368,7 +368,7 @@ This function makes the following changes:
           (backward-char 2))
 		
 		(local-set-key (kbd "C-x l") 'org-id-copy)
-		(local-set-key (kbd "C-x L") 'org-id-paste-link))) ;; local-set-key will set the key for the major mode (any buffer in org-mode).
+		(local-set-key (kbd "C-x L") 'laity/org-id-paste-link))) ;; local-set-key will set the key for the major mode (any buffer in org-mode).
 
 ;; Set new text for emacs' startup "Scratch buffer:"
 (setq initial-scratch-message "Welcome to Emacs, configured for use like a normal text editor, with org-mode built-in!

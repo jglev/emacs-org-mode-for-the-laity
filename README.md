@@ -6,7 +6,15 @@ This configuration file causes Emacs to behave more like a "normal" text editor 
 
 ### "This is an abomination! People who use Emacs need to learn all of its functionality and default keybindings!"
 
-When I use Emacs, I use `evil-mode`, making Emacs work more like Vim. This is philosophically no different. In my mind, Emacs is a wonderful *platform* for doing text editing. Its configurability means that the *interface* for working with that platform can adapt to the people using it, whether by making it act more like Vim or like Notepad++.
+When I use Emacs, I use `evil-mode`, making Emacs work more like Vim. What the configuration file in this repository does is philosophically no different. In my mind, Emacs is a wonderful *platform* for doing text editing. Its configurability means that the *interface* for working with that platform can adapt to the people using it, whether by making it act more like Vim or like Notepad++.
+
+### "Won't this teach people bad habits about using Emacs? People won't be able to sit down at a clean Emacs installation on someone else's computer and use it."
+
+Given Emacs' complexity, users adapt based on the needs of the work they're doing at the time. That's how we learn, yes? -- by incrementally adding to our knowledge given a specific problem in a specific context. With this in mind, I suspect that users of this configuration file will learn new habits as they need to. If this configuration file helps users start using Emacs where they wouldn't have otherwise, and if Emacs is a useful tool for them given they work they're doing, I consider that a positive outcome, regardless of how "clean" the experience is.
+
+### What do you mean by "laity"?
+
+From [Oxford Living Dictionaries](https://en.oxforddictionaries.com/definition/laity "Oxford Living Dictionaries: 'laity'"): "Ordinary people, as distinct from professionals or experts." By this, I just mean people who don't have expert-level experience with *Emacs* specifically -- that is, users who have never worked with it before.
 
 ## Usage
 
