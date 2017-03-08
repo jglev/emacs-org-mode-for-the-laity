@@ -163,6 +163,10 @@ Return a list of installed packages or nil for every skipped package."
   (setq cua-auto-tabify-rectangles nil) ;; Don't tabify after rectangle commands
   (transient-mark-mode nil) ;; No region when it is not highlighted
   (setq cua-keep-region-after-copy t) ;; Standard Windows behaviour
+  
+  ;; Tell emacs to still use CUA keybindings in org-mode, which would otherwise replace some of them:
+  (setq org-support-shift-select t)
+  (setq org-replace-disputed-keys t)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; End of extra interface configurations
@@ -362,92 +366,73 @@ This function makes the following changes:
 		(local-set-key (kbd "C-x l") 'org-id-copy)
 		(local-set-key (kbd "C-x L") 'org-id-paste-link))) ;; local-set-key will set the key for the major mode (any buffer in org-mode).
 
-
 ;; Set new text for emacs' startup "Scratch buffer:"
 (setq initial-scratch-message "Welcome to Emacs, configured for use like a normal text editor, with org-mode built-in!
 
-######################
-Enabling org-mode
-######################
+* Enabling org-mode
 
 To turn org-mode on, type M-x (that's Alt-x or Command-x, depending on your keyboard), then type 'org-mode', and press enter.
 
-######################
-Keyboard shortcuts to remember
-######################
+This document is written in org-mode. Turn on org-mode now, and you'll see the headlines "fold" down. You can then press use <Tab> on a headline to cycle through it being folded, partially open, and fully open. You can also use Shift-<Tab> to cycle through *all* headlines in the document at once.
 
-C-h k = Hold down Control and h and the same time, then press k. 
-M-x = Hold down 'Meta' (usually the Alt key, depending on your keyboard) and x at the same time, then type
+** Keyboard shortcuts to remember
 
-###########
-Normal keyboard shortcuts
-###########
+- *C-h k* = Hold down Control and h and the same time, then press k.
+- *M-x* = Hold down 'Meta' (usually the Alt key, depending on your keyboard) and x at the same time, then type
 
-Although Emacs doesn't typically use them, this configuration of Emacs has enabled 'normal' keyboard shortcuts like C-c for Copy, C-v for paste, C-o for open, etc.
+** Normal keyboard shortcuts
+
+Although Emacs doesn't typically use them, this configuration of Emacs has enabled 'normal' keyboard shortcuts like C-c for *copy*, C-v for *paste*, C-o for *open*, etc.
 
 If you notice that a keyboard shortcut you try to use doesn't work, let me know, and we can see about adding it.
 
-C-f does work for searching a file. To jump between matches, you need to keep pressing C-f (instead of <Enter>, like in some text editors).
+Also, note that in org-mode, some keyboard shortcuts, like holding down Ctrl. and using the arrow keys, change function (for example, C-<left> / C-<right> change to de-indenting or indenting the current line if it's in a list).
 
-###########
-Menus
-###########
+*C-f* does work for *searching* a file. To jump between matches, you need to keep pressing C-f (instead of <Enter>, like in some text editors).
 
-If you remember even **just the two keyboard shortcuts below,** you can use Emacs with org-mode : )
+** Menus
 
-M-x: Get a searchable pop-up menu (called 'Ivy') of every function in Emacs
-C-g: Cancel a pop-up menu
+If you remember even *just the two keyboard shortcuts below*, you can use Emacs with org-mode :)
 
-###########
-Getting help
-###########
+- *M-x*: Get a searchable pop-up menu (called 'Ivy') of every function in Emacs
+- *C-g*: Cancel a pop-up menu
 
-* C-h k: Get the help documentation for any keyboard shortcut (you type the keyboard shortcut, and it tells you what that shortcut does)
-* C-h f: Get the help documentation for any function (you type the function name, and it shows you the help documentation for it
-* C-h v: Get the value of any configuration variable in Emacs (you type the variable name, and it tells you what it does and what it's currently set to)
+** Getting help
 
-###########
-Switching between windows and open files ('buffers')
-###########
+- *C-h k*: Get the help documentation for any keyboard shortcut (you type the keyboard shortcut, and it tells you what that shortcut does)
+- *C-h f*: Get the help documentation for any function (you type the function name, and it shows you the help documentation for it
+- *C-h v*: Get the value of any configuration variable in Emacs (you type the variable name, and it tells you what it does and what it's currently set to)
 
-(A 'buffer' in emacs is like a tab in Firefox or Chrome -- it's a file or scratchpad that's currently open)
+** Switching between windows and open files ('buffers')
 
-* C-x b: Switch between buffers
-* C-x 1: If you have multiple windows/panes open, switch to just the current one.
-* windows-key-<up>, windows-key-<down>: If you have multiple windows/panes open, move between them.
+(A '*buffer*' in emacs is like a tab in Firefox or Chrome -- it's a file or scratchpad that's currently open)
 
-###########
-org-mode shortcuts
-###########
+- *C-x b*: Switch between buffers
+- *C-x 1*: If you have multiple windows/panes open, switch to just the current one.
+- *windows-key-<up>*, *windows-key-<down>*: If you have multiple windows/panes open, move between them.
 
-C-x l / C-x L: When you're in org-mode, you can go to any headline (any line that starts with '*'), and type C-x l (think 'l' for 'link'). This will create an ID number for that headline and copy a link to it to your keyboard.
+** org-mode shortcuts
+
+- *C-x l* / *C-x L*: When you're in org-mode, you can go to any headline (any line that starts with '*'), and type C-x l (think 'l' for 'link'). This will create an ID number for that headline and copy a link to it to your keyboard.
 Then you can go anywhere else in your document and press C-x L to paste the link in org-mode format. Type some text to describe the link, and you now have a clickable link to that first place in your document!
+- *<Tab>*: Fold / Unfold the headline where your cursor is.
+- *S-<Tab>*: Fold / Unfold every headline in the document.
+- *M-<up>* / *M-<down>*: Move a headline up or down
+- *M-<left>* / *M-<right>*: De-indent / Indent a headline
+- *M-<Enter>*: Insert a new headline
+- *M-S-<Enter>*: Insert a new TODO headline
 
-<Tab>: Fold / Unfold the headline where your cursor is.
-S-<Tab>: Fold / Unfold every headline in the document.
-M-<up> / M-<down>: Move a headline up or down
-M-<left> / M-<right>: De-indent / Indent a headline
-M-<Enter>: Insert a new headline
-M-S-<Enter>: Insert a new TODO headline
-
-######################
-Emacs functions to remember
-######################
-
-
-######################
-org-mode functions to remember
-######################
+* Emacs functions to remember
+* org-mode functions to remember
 
 (You can run any of these from the M-x menu):
 
-org-sparse-tree:
+- *org-sparse-tree*:
+- *org-clock-in* / *org-clock-out*:
+- *org-clock-report*:
+- *org-agenda*:
+  (Within org-agenda, if you press a (for full Agenda view), then v (for View) and d (for Day), you'll get the current day's entries.
 
-org-clock-in / org-clock-out:
-org-clock-report:
-
-org-agenda:
-(Within org-agenda, if you press a (for full Agenda view), then v (for View) and d (for Day), you'll get the current day's entries.
 
 ") ;; End of scratch message definition.
 
