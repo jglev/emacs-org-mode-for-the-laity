@@ -2,6 +2,10 @@
 ;; Title: .emacs configuration for people who don't normally use Emacs, but still want to use org-mode.
 ;; Author: Jacob Levernier (except when otherwise noted)
 ;; Date: 2017-03-07
+;; License: GPLv3
+;;    License rationale: 
+;;        If you remove the code block that beings with "Code block from http://stackoverflow.com/a/36707038" and ends with "End of code block from http://stackoverflow.com/a/36707038", you may consider this released under The 3-Clause BSD License, copyright Jacob Levernier, 2017-03-07.
+;;        The above-mentioned code block is from Stack Exchange, which requires CC-BY-SA licensing. In order to be in compliance with this license, I'm also considering the code in this file overall GPLv3 licensed, because CC-BY-SA to GPLv3 license compatibility is approved by Creative Commons (https://creativecommons.org/share-your-work/licensing-considerations/compatible-licenses/).
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -149,14 +153,16 @@ Return a list of installed packages or nil for every skipped package."
   (global-set-key (kbd "C-S-z") 'undo-tree-redo) ;; Map C-o to Open
   
 
-  ;; Following http://stackoverflow.com/a/36707038, get isearch-forward to automatically wrap:
+  ;; Get isearch-forward to automatically wrap:
   (defadvice isearch-search (after isearch-no-fail activate)
+  ;; Code block from http://stackoverflow.com/a/36707038, authored by Chris Martin (http://stackoverflow.com/posts/36707038/revisions):
   (unless isearch-success
     (ad-disable-advice 'isearch-search 'after 'isearch-no-fail)
     (ad-activate 'isearch-search)
     (isearch-repeat (if isearch-forward 'forward))
     (ad-enable-advice 'isearch-search 'after 'isearch-no-fail)
     (ad-activate 'isearch-search)))
+  ;; End of code block from http://stackoverflow.com/a/36707038
   
   ;; Make C-f activate search-forward
   (global-set-key (kbd "C-f") 'isearch-forward)
@@ -460,17 +466,6 @@ Then you can go anywhere else in your document and press C-x L to paste the link
 (defun startup-scroll-function ()
   "Scroll to the top of the buffer"
   (beginning-of-buffer))
-
-
-
-
-
-
-
-
-
-
-
 
 
 
