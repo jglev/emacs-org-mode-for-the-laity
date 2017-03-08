@@ -1,4 +1,4 @@
-# "Emacs org-mode for the Laity" configuration
+# "Emacs `org-mode` for the Laity" configuration
 
 ## What is this?
 
