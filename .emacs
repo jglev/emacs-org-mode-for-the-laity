@@ -59,6 +59,7 @@ Return a list of installed packages or nil for every skipped package."
  ;;'org-bullets ;; For nicer bullets (replacing multiple **s with UTF-8 bullets) in org-mode. UPDATE: I've disabled this for now because it slows down org-mode by up to several seconds.
  'org-repo-todo ;; For todo functionality within a repo.
  'org-journal ;; An org-mode-based journal
+ 'undo-tree
  )
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -142,6 +143,9 @@ Return a list of installed packages or nil for every skipped package."
   
   (global-set-key (kbd "C-s") 'save-buffer) ;; Map C-s to Save
   (global-set-key (kbd "C-o") 'find-file) ;; Map C-o to Open
+  
+  (require 'undo-tree)
+  (global-undo-tree-mode)
   (global-set-key (kbd "C-S-z") 'undo-tree-redo) ;; Map C-o to Open
   
 
@@ -373,7 +377,7 @@ This function makes the following changes:
 
 To turn org-mode on, type M-x (that's Alt-x or Command-x, depending on your keyboard), then type 'org-mode', and press enter.
 
-This document is written in org-mode. Turn on org-mode now, and you'll see the headlines "fold" down. You can then press use <Tab> on a headline to cycle through it being folded, partially open, and fully open. You can also use Shift-<Tab> to cycle through *all* headlines in the document at once.
+This document is written in org-mode syntax. Turn on org-mode now, and you'll see the headlines "fold" down. You can then press use <Tab> on a headline to cycle through it being folded, partially open, and fully open. You can also use Shift-<Tab> to cycle through *all* headlines in the document at once.
 
 ** Keyboard shortcuts to remember
 
