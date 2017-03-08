@@ -377,7 +377,7 @@ This function makes the following changes:
 
 To turn org-mode on, type M-x (that's Alt-x or Command-x, depending on your keyboard), then type 'org-mode', and press enter.
 
-This document is written in org-mode syntax. Turn on org-mode now, and you'll see the headlines "fold" down. You can then press use <Tab> on a headline to cycle through it being folded, partially open, and fully open. You can also use Shift-<Tab> to cycle through *all* headlines in the document at once.
+This document is written in org-mode syntax. Turn on org-mode now, and you'll see the headlines 'fold' down. You can then press <Tab> repeatedly on a headline to cycle through it being folded, partially open, and fully open. You can also use Shift-<Tab> to cycle through *all* headlines in the document at once.
 
 ** Keyboard shortcuts to remember
 
@@ -426,7 +426,6 @@ Then you can go anywhere else in your document and press C-x L to paste the link
 - *M-<Enter>*: Insert a new headline
 - *M-S-<Enter>*: Insert a new TODO headline
 
-* Emacs functions to remember
 * org-mode functions to remember
 
 (You can run any of these from the M-x menu):
