@@ -379,7 +379,26 @@ To turn org-mode on, type M-x (that's Alt-x or Command-x, depending on your keyb
 
 This document is written in org-mode syntax. Turn on org-mode now, and you'll see the headlines 'fold' down. You can then press <Tab> repeatedly on a headline to cycle through it being folded, partially open, and fully open. You can also use Shift-<Tab> to cycle through *all* headlines in the document at once.
 
-** Keyboard shortcuts to remember
+* org-mode syntax
+
+org-mode has some special conventions for marking-up text. Many of these are similar to [[https://daringfireball.net/projects/markdown/syntax][Markdown]], which you may have heard of.
+
+For example:
+
+- Want to make a bullet list? Just add a dash to the front of each line, like with this line!
+- Want to make text *bold* or /italicized/?
+- Want to mark something as ~computer code~?
+- Want to insert a block quote?
+    #+BEGIN_QUOTE
+    I use Emacs, which might be thought of as a thermonuclear word processor.
+      - Neal Stephenson
+    #+END_QUOTE
+  
+  (If you're in org-mode right now, you can click on either the line 'Want to insert a block quote' and/or the line '#+BEGIN_QUOTE' and press <Tab> on your keyboard to 'Fold' the rest of the text underneath.)
+
+The *'Compact Guide' to org-mode's syntax* is [[http://orgmode.org/orgguide.pdf][here in PDF form]] and [[http://orgmode.org/guide/][here in HTML form]]. The PDF is 45 pages, but that's because it has a lot of explanatory text; you *don't need to read the whole document, and certainly not all at once!* Rather, just look through the Table of Contents when you have a question, and learn as you go.
+
+* Keyboard shortcuts to remember
 
 - *C-h k* = Hold down Control and h and the same time, then press k.
 - *M-x* = Hold down 'Meta' (usually the Alt key, depending on your keyboard) and x at the same time, then type
@@ -433,7 +452,6 @@ Then you can go anywhere else in your document and press C-x L to paste the link
 - *org-clock-report*:
 - *org-agenda*:
   (Within org-agenda, if you press a (for full Agenda view), then v (for View) and d (for Day), you'll get the current day's entries.
-
 
 ") ;; End of scratch message definition.
 
