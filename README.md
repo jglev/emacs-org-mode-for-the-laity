@@ -1,5 +1,12 @@
 # "Emacs for the Laity" configuration
 
+## What is this?
+
+This configuration file causes Emacs to behave more like a "normal" text editor (with familiar keybindings [i.e., keyboard shortcuts] such as `C-c` for copy, `C-v` for paste, `C-z` for undo and `C-S-z` for redo, etc.). It thus allows users who have never interacted with Emacs but who want to use `org-mode` to do so.
+
+### "This is an abomination! People who use Emacs need to learn all of its functionality and default keybindings!"
+
+When I use Emacs, I use `evil-mode`, making Emacs work more like Vim. This is philosophically no different. In my mind, Emacs is a wonderful *platform* for doing text editing. Its configurability means that the *interface* for working with that platform can adapt to the people using it, whether by making it act more like Vim or like Notepad++.
 
 ## Usage
 

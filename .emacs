@@ -48,18 +48,14 @@ Return a list of installed packages or nil for every skipped package."
 (package-initialize)
 
 (ensure-package-installed
- ;;'evil ;; For vim mode
  'helm ;; For a dashboard
  'flycheck ;; For Syntax checking
- ;;'projectile ;; For source control functionality
- ;;'magit ;; For git commands
  'powerline
  'solarized-theme ;; This can then be activated with M-x load-theme
  'markdown-mode
  'markdown-mode+
  'darkroom
  'scroll-restore ;; For allowing scrolling without moving the cursor once it goes off-screen.
- ;;'syndicate ;; For extra Vim-like keybindings in org-mode. Based on the evil-org package, but adds on it.
  ;;'org-bullets ;; For nicer bullets (replacing multiple **s with UTF-8 bullets) in org-mode. UPDATE: I've disabled this for now because it slows down org-mode by up to several seconds.
  'org-repo-todo ;; For todo functionality within a repo.
  'org-journal ;; An org-mode-based journal
@@ -84,7 +80,7 @@ Return a list of installed packages or nil for every skipped package."
 ;;;;;;;;;;;;;;;
 
 (scroll-restore-mode 1) ;; Change to nil to disable, and 1 to enable, scroll-restore mode by default
-(global-set-key (kbd "C-S-z") 'scroll-restore-jump-back) ;; Set a keybinding for jumping back when scrolling.
+(global-set-key (kbd "C-x j") 'scroll-restore-jump-back) ;; Set a keybinding for jumping back when scrolling.
 
 ;;;;;;;;;;;;;;;
 ;; Load the Darkroom package (useful for writing prose -- it brings in the margins of the interface to offer less distraction when writing)
@@ -190,9 +186,6 @@ Return a list of installed packages or nil for every skipped package."
 	("8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" "d677ef584c6dfc0697901a44b885cc18e206f05114c8a3b7fde674fce6180879" default)))
  '(darkroom-margins 0.2)
  '(delete-selection-mode nil)
- '(org-agenda-files
-   (quote
-	("~/Primary_Syncing_Folder/Documents/Research_and_Project_Log_Notes" "~/Primary_Syncing_Folder/Documents/todo" "~/Primary_Syncing_Folder/Documents/Files in Transit/Dissertation_Project/Dissertation_Proposal/Written_Report/Notes")))
  '(org-hide-leading-stars t)
  '(org-journal-date-format "%A, %Y-%m-%d")
  '(org-journal-file-format "%Y-%m-%d.org")
@@ -288,7 +281,8 @@ This function makes the following changes:
 (if (boundp 'org-user-agenda-files)
 	(setq org-agenda-files org-user-agenda-files)
 	(setq org-agenda-files (quote (
-		"~/Primary_Syncing_Folder/Documents/Research_and_Project_Log_Notes"
+	    ;; ('~' = your home directory)
+		"~/Daily_Logs"
 		"~/Primary_Syncing_Folder/Documents/todo"
 ))))
 
