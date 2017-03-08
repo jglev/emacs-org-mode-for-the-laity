@@ -390,8 +390,6 @@ Although Emacs doesn't typically use them, this configuration of Emacs has enabl
 
 If you notice that a keyboard shortcut you try to use doesn't work, let me know, and we can see about adding it.
 
-Also, note that in org-mode, some keyboard shortcuts, like holding down Ctrl. and using the arrow keys, change function (for example, C-<left> / C-<right> change to de-indenting or indenting the current line if it's in a list).
-
 *C-f* does work for *searching* a file. To jump between matches, you need to keep pressing C-f (instead of <Enter>, like in some text editors).
 
 ** Menus
