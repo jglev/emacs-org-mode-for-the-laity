@@ -59,6 +59,7 @@ Return a list of installed packages or nil for every skipped package."
  'markdown-mode
  'markdown-mode+
  'darkroom
+ 'ivy
  'scroll-restore ;; For allowing scrolling without moving the cursor once it goes off-screen.
  ;;'org-bullets ;; For nicer bullets (replacing multiple **s with UTF-8 bullets) in org-mode. UPDATE: I've disabled this for now because it slows down org-mode by up to several seconds.
  'org-repo-todo ;; For todo functionality within a repo.
@@ -381,7 +382,7 @@ This function makes the following changes:
 
 * Enabling org-mode
 
-To turn org-mode on, type M-x (that's Alt-x or Command-x, depending on your keyboard), then type 'org-mode', and press enter.
+To turn org-mode on, type M-x (as noted [[id:0fc580dc-4707-49bb-b42c-4d4f92886ab8][below]], that means hold down the 'Meta' key (usually the Alt key or Command key, depending on your keyboard) and x at the same time), then type 'org-mode', and press enter.
 
 This document is written in org-mode syntax. Turn on org-mode now, and you'll see the headlines 'fold' down. You can then press <Tab> repeatedly on a headline to cycle through it being folded, partially open, and fully open. You can also use Shift-<Tab> to cycle through *all* headlines in the document at once.
 
@@ -405,6 +406,11 @@ For example:
 The *'Compact Guide' to org-mode's syntax* is [[http://orgmode.org/orgguide.pdf][here in PDF form]] and [[http://orgmode.org/guide/][here in HTML form]]. The PDF is 45 pages, but that's because it has a lot of explanatory text; you *don't need to read the whole document, and certainly not all at once!* Rather, just look through the Table of Contents when you have a question, and learn as you go.
 
 * Keyboard shortcuts to remember
+  :PROPERTIES:
+  :ID:       0fc580dc-4707-49bb-b42c-4d4f92886ab8
+    This 'Properties drawer' gives this headline ('Keyboard shortcuts to remember') a unique ID number that we can make a clickable link to. There's a link above that links to this ID.
+    This Properties drawer and ID number were automatically created using the command 'org-id-copy', or the keyboard command *C-x l* (as mentioned below, under the 'org-mode shortcuts' headline).
+  :END:
 
 - *C-h k* = Hold down Control and h and the same time, then press k.
 - *M-x* = Hold down 'Meta' (usually the Alt key, depending on your keyboard) and x at the same time, then type
