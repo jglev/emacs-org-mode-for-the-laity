@@ -347,7 +347,7 @@ This function makes the following changes:
 
 (setq org-agenda-search-view-always-boolean t) ;; When searching in org-mode's agenda, don't require explicit '+' symbols (so 'test1 test2' will be seen as '+test1 +test2' when this is set to t)
 
-;; Turn org-mode on by default
+
 
 
 ;;;;;;;;;;;;;;;
@@ -382,7 +382,7 @@ This function makes the following changes:
 
 * Enabling org-mode
 
-To turn org-mode on, type M-x (as noted [[id:0fc580dc-4707-49bb-b42c-4d4f92886ab8][below]], that means hold down the 'Meta' key (usually the Alt key or Command key, depending on your keyboard) and x at the same time), then type 'org-mode', and press enter.
+To turn org-mode on, type M-x (as noted below, that means hold down the 'Meta' key (usually the Alt key or Command key, depending on your keyboard) and x at the same time), then type 'org-mode', and press enter.
 
 This document is written in org-mode syntax. Turn on org-mode now, and you'll see the headlines 'fold' down. You can then press <Tab> repeatedly on a headline to cycle through it being folded, partially open, and fully open. You can also use Shift-<Tab> to cycle through *all* headlines in the document at once.
 
@@ -408,8 +408,14 @@ The *'Compact Guide' to org-mode's syntax* is [[http://orgmode.org/orgguide.pdf]
 * Keyboard shortcuts to remember
   :PROPERTIES:
   :ID:       0fc580dc-4707-49bb-b42c-4d4f92886ab8
+    
     This 'Properties drawer' gives this headline ('Keyboard shortcuts to remember') a unique ID number that we can make a clickable link to. There's a link above that links to this ID.
+    
     This Properties drawer and ID number were automatically created using the command 'org-id-copy', or the keyboard command *C-x l* (as mentioned below, under the 'org-mode shortcuts' headline).
+    
+    You can link to this from elsewhere in any document you've listed in the ~org-agenda-files~ part of your ~.emacs~ file using syntax like this: ~[ [id:0fc580dc-4707-49bb-b42c-4d4f92886ab8][Text for the link goes here] ]~
+    
+    *Note:* Linking to this will only work for files that you've added to the ~org-agenda-files~ part of your ~.emacs~ file.
   :END:
 
 - *C-h k* = Hold down Control and h and the same time, then press k.
@@ -448,6 +454,15 @@ If you remember even *just the two keyboard shortcuts below*, you can use Emacs 
 
 - *C-x l* / *C-x L*: When you're in org-mode, you can go to any headline (any line that starts with '*'), and type C-x l (think 'l' for 'link'). This will create an ID number for that headline and copy a link to it to your keyboard.
 Then you can go anywhere else in your document and press C-x L to paste the link in org-mode format. Type some text to describe the link, and you now have a clickable link to that first place in your document!
+*Note:* This will only work for files that you've added to the ~org-agenda-files~ part of your ~.emacs~ file.
+
+- *C-c C-c*: Toggle/refresh stuff (toggle check boxes, change tags, refresh clock-table, depending on the context)
+- *C-c C-t*: Quick access to list of todo states (runs M-x org-todo)
+
+- *M-<Enter>*: Add a new list item
+  - :M-S-<Enter>*: Add a new checkbox item
+- *M-[left/right]*: change the spacing of list items
+
 - *<Tab>*: Fold / Unfold the headline where your cursor is.
 - *S-<Tab>*: Fold / Unfold every headline in the document.
 - *M-<up>* / *M-<down>*: Move a headline up or down
@@ -459,10 +474,18 @@ Then you can go anywhere else in your document and press C-x L to paste the link
 
 (You can run any of these from the M-x menu):
 
-- *org-sparse-tree*:
-- *org-clock-in* / *org-clock-out*:
-- *org-clock-report*:
-- *org-agenda*:
+- *org-todo*: Quick list of todo states (nicer than cycling through with S-[left/right])
+- *org-show-todo-tree*: See the todo list for the current buffer (with non-todo lines folded)
+
+- *org-add-note*: Add a note with a datestamp
+
+- *org-sort*: Sort a list by something (you get a menu re: alphabetical, numeric, etc.)
+
+- *org-sparse-tree*: See just the unfinished Todo items in the current file.
+- *org-clock-in* / *org-clock-out*: Add a timeclock to the current headline.
+- *org-clock-report*: See how much time you've spent (from *org-clock-in* / *org-clock-out*) on the current headline and the headlines below it. You can configure the report [[http://orgmode.org/manual/The-clock-table.html]][in a lot of ways]].
+
+- *org-agenda*: Search through all of your ~org-agenda-files~ files, see all of the Todo entries across them, and more.
   (Within org-agenda, if you press a (for full Agenda view), then v (for View) and d (for Day), you'll get the current day's entries.
 
 ") ;; End of scratch message definition.
