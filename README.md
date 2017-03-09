@@ -10,7 +10,7 @@ When I use Emacs, I use `evil-mode`, making Emacs work more like Vim. What the c
 
 ### "Won't this teach people bad habits about using Emacs? People won't be able to sit down at a clean Emacs installation on someone else's computer and use it."
 
-Given Emacs' complexity, users adapt based on the needs of the work they're doing at the time. That's how we learn, yes? -- by incrementally adding to our knowledge given a specific problem in a specific context. With this in mind, I suspect that users of this configuration file will learn new habits as they need to. If this configuration file helps users start using Emacs where they wouldn't have otherwise, and if Emacs is a useful tool for them given they work they're doing, I consider that a positive outcome, regardless of how "clean" the experience is.
+Given Emacs' complexity, users adapt and learn new functionality based on the needs of the work they're doing at the time. That's how we learn, yes? -- by incrementally adding to our knowledge given a specific problem in a specific context. With this in mind, I suspect that users of this configuration file will learn new habits as they need to. If this configuration file helps users start using Emacs where they wouldn't have otherwise, and if Emacs is a useful tool for them given they work they're doing, I consider that a positive outcome, regardless of how "clean" the experience is.
 
 ### What do you mean by "laity"?
 
