@@ -386,6 +386,10 @@ To turn org-mode on, type M-x (as noted below, that means hold down the 'Meta' k
 
 This document is written in org-mode syntax. Turn on org-mode now, and you'll see the headlines 'fold' down. You can then press <Tab> repeatedly on a headline to cycle through it being folded, partially open, and fully open. You can also use Shift-<Tab> to cycle through *all* headlines in the document at once.
 
+
+    *Go ahead and enable org-mode now, using the instructions above.*
+
+
 * org-mode syntax
 
 org-mode has some special conventions for marking-up text. Many of these are similar to [[https://daringfireball.net/projects/markdown/syntax][Markdown]], which you may have heard of.
@@ -403,6 +407,22 @@ For example:
   
   (If you're in org-mode right now, you can click on either the line 'Want to insert a block quote' and/or the line '#+BEGIN_QUOTE' and press <Tab> on your keyboard to 'Fold' the rest of the text underneath.)
 
+** More org-mode syntax examples
+
+You can format text in *more* /more/ _more_ =more= ~more~ +more+ ways.
+
+*** This line is a 'Headline' because it starts with one or more asterisks (more asterisks = more indented in the list). It has three tags (like hashtags)  :tag1:tag2:tag3:
+*** TODO This line is another 'Headline.' It is also a 'Todo' item, because it starts with the word TODO. With org-mode activated, put your cursor on this line, and run *M-x org-todo* (or use the keyboard shortcut, *C-c C-t*, and try changing it's TODO state to 'DONE'.
+
+*** What's below this is an example bullet list (press <Tab> on this line if you can't see what's below it)
+
+- This is a bullet list
+  - [ ] This line has a checkbox.
+  - [X] This line also has a checkbox, which has been checked.
+  - [ ] This line has a checkbox. To check it, you can either manually write 'X' in it, or you can use the keyboard shortcut *C-c C-c*. Go ahead and try that now!
+
+** Documentation for org-mode syntax
+
 The *'Compact Guide' to org-mode's syntax* is [[http://orgmode.org/orgguide.pdf][here in PDF form]] and [[http://orgmode.org/guide/][here in HTML form]]. The PDF is 45 pages, but that's because it has a lot of explanatory text; you *don't need to read the whole document, and certainly not all at once!* Rather, just look through the Table of Contents when you have a question, and learn as you go.
 
 * Keyboard shortcuts to remember
@@ -417,9 +437,27 @@ The *'Compact Guide' to org-mode's syntax* is [[http://orgmode.org/orgguide.pdf]
     
     *Note:* Linking to this will only work for files that you've added to the ~org-agenda-files~ part of your ~.emacs~ file.
   :END:
+  
+** Explanation of how keyboard shortcuts are written out here (as in other org-mode documentation you might read)
 
-- *C-h k* = Hold down Control and h and the same time, then press k.
-- *M-x* = Hold down 'Meta' (usually the Alt key, depending on your keyboard) and x at the same time, then type
+- 'C-h k' means 'Hold down Control and h and the same time, then press k.'
+- Similarly, 'M-x' means 'Hold down 'Meta' (usually the Alt key, depending on your keyboard) and x at the same time.'
+- 'C-S-<up>' means 'Hold down Control, Shift, and the up arrow button at the same time.'
+- Similarly, 'C-c C-t' means 'Hold down Control and c and the same time, then hold down Control and t at the same time.'
+
+** Summarizing what's below: *The four basic keyboard commands for you to learn*
+
+org-mode and Emacs both have so many features, it takes /years/ to learn them all. Thus, my recommendation is not to try to learn everything all at once. Rather, learn the very basics, and then add to your knowledge as you have new needs that come up.
+
+With this in mind, there are just four keyboard commands to remember when starting to use org-mode with this configuration file:
+
+- *M-x*: Bring up a list of every function in Emacs. Put differently, bring up a list of every thing that Emacs can do, from moving the cursor like your arrow keys do to doing complicated org-mode tasks.
+  - The menu that M-x will bring up is searchable. Thus, *you don't need to remember every function name,* if you can articulate a vague idea of what its name might be. You can always learn keyboard shortcuts later.
+    - For example, do you want to clock-in to a task in your Todo list? By searching for the phrase 'clock in', you'll find the function's name, 'org-clock-in'!
+    - Another example: Want to select from a list of all of the Todo states (TODO, DONE, SCHEDULED, HOLD, etc.) that org-mode understands? Search for the phrase 'todo', and you'll find 'org-todo'!
+- *C-g* (think 'Control: Go away'): The equivalent of 'Cancel' whenever you're in a menu like from *M-x*.
+- *C-x b* (think 'Control/execute buffers'): Bring up a list of all of the open buffers (buffers are like tabs, but you can bring them up anywhere, including in multiple windows). Like the *M-x* menu, this menu is searchable.
+- *C-x 1*: Close all split-screen panes except for the current one.
 
 ** Normal keyboard shortcuts
 
