@@ -45,7 +45,7 @@ From [Oxford Living Dictionaries](https://en.oxforddictionaries.com/definition/l
 			1. Open Emacs. You'll know that it can find your .emacs file if it asks you at the bottom of the window whether you want to install a package (see below).			
 		* (The other main way to do this is to go to `C:\Users\Your_User_Name\AppData\Roaming`. This is the directory where Emacs on Windows seems to look by default.
     	* For Windows, you can [alternatively paste the file](https://www.gnu.org/software/emacs/manual/html_node/efaq-w32/Location-of-init-file.html "GNU.org: Naming .emacs in Windows") so that it is named `_emacs`, if your system won't let you name a file starting with a period.
-1. In a text editor (ha, preferably not Emacs), open the `.emacs` file you just saved. Find the code chunk that starts with the line `(setq org-agenda-files (quote (`. Replace the lines below that with the folder(s) where you plan to keep the files you want to use with `org-mode`.
+1. In a text editor (ha, preferably not Emacs; for **Windows, Notepad;** for **OSX, TextEdit;** for **Linux, Pluma, Kate, Gedit, etc.**), open the `.emacs` file you just saved. Find the code chunk that starts with the line `(setq org-agenda-files (quote (`. Replace the lines below that with the folder(s) where you plan to keep the files you want to use with `org-mode`.
 1. Start Emacs. If Emacs can see the `.emacs` file you moved in the step above, it should ask you whether you would like to install a series of add-ons (Press "Y" on your keyboard for each). 
 1. Close and then re-open Emacs to let the changes take full effect.
 1. If all goes well, when you open Emacs, you should be greeted with some helpful text about org-mode.
