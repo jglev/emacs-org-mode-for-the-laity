@@ -28,10 +28,10 @@ From [Oxford Living Dictionaries](https://en.oxforddictionaries.com/definition/l
     	* Go into the unzipped folder, go into the `bin` directory, and double-click on `runemacs`.
     		* If you see a security warning, click "Run".
     		* Emacs on Windows doesn't require you to install anything. Just double-click that `runemacs` program when you want to load Emacs.
-1. Paste the `.emacs` from this repository into your home directory (in Linux and OSX, it should be saved to `~/.emacs` (i.e., `[Your user home folder]/.emacs`).
-	* **For Mac OSX and Linux,** if you are in Firefox, you can download the `.emacs` file [here](https://raw.githubusercontent.com/publicus/emacs-org-mode-for-the-laity/master/.emacs ".emacs file content").
-	* In Firefox or a similar browswer, right click on the page, and click "Save Page As...". Then save it as "`.emacs`" in your home directory (on a Mac, for example, `/Users/Your_User_Name/`).  
-	(Your home directory is the directory that includes folders called `Downloads`, `Documents`, `Music`, etc.).
+1. Save the `.emacs` file from this repository into your home directory (in Linux and OSX, it should be saved to `~/.emacs` (i.e., `[Your user home folder]/.emacs`).
+	* **For Mac OSX and Linux,** if you are in Firefox, you can download the `.emacs` file [here](https://raw.githubusercontent.com/publicus/emacs-org-mode-for-the-laity/master/.emacs ".emacs file content").  
+		* In Firefox or a similar browswer, right click on the page, and click "Save Page As...". Then save it as "`.emacs`" in your home directory (on a Mac, for example, `/Users/Your_User_Name/`).  
+		* (Your home directory is the directory that includes folders called `Downloads`, `Documents`, `Music`, etc.)
 	* **For Windows,** there are several ways to do this.
 		* I think that the easiest way to do this is to set an "Environment Variable" called "HOME" and point it to `C:\Users\Your_User_Name`, following the instructions [here](www.computerhope.com/issues/ch000549.htm "How to set the path and environment variables in Windows").
 			1. Follow the instructions at the website linked above.
