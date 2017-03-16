@@ -22,9 +22,27 @@ From [Oxford Living Dictionaries](https://en.oxforddictionaries.com/definition/l
     * For Linux, though your distribution's package manager
     * For OSX, from [Emacs for Mac OSX](https://emacsformacosx.com/ "Installer for Emacs for Mac OSX")
     * For Windows, from the [GNU Project](https://www.gnu.org/software/emacs/download.html#windows "Installer for Emacs for Windows")
+    	* Click "main GNU FTP server"
+    	* Select the Emacs version with the highest version number. You'll probably want the version that includes "x86" in its name (For example, `emacs-25.1-x86_64-w64-mingw32.zip`)
+    	* Download the `.zip` file, and unpack it into any directory on your computer.
+    	* Go into the unzipped folder, go into the `bin` directory, and double-click on `runemacs`.
+    		* If you see a security warning, click "Run".
+    		* Emacs on Windows doesn't require you to install anything. Just double-click that `runemacs` program when you want to load Emacs.
 1. Paste the `.emacs` file into your home directory (in Linux and OSX, it should be at `~/.emacs`).
-    * For Windows, you can [alternatively paste the file](https://www.gnu.org/software/emacs/manual/html_node/efaq-w32/Location-of-init-file.html "GNU.org: Naming .emacs in Windows") so that it is named `_emacs`, if your system won't let you name a file starting with a period.
-1. Open the `.emacs` file you just pasted in a text editor (ha, preferably not Emacs). Find the code chunk that starts with the line `(setq org-agenda-files (quote (`. Replace the lines below that with the folder(s) where you plan to keep the files you want to use with `org-mode`.
+	* **For Windows,** there are several ways to do this.
+		* I think that the easiest way to do this is to set an "Environment Variable" called "HOME" and point it to `C:\Users\Your_User_Name`, following the instructions [here](www.computerhope.com/issues/ch000549.htm "How to set the path and environment variables in Windows").
+			1. Follow the instructions at the website linked above.
+				* The Varible name should be "`HOME`".
+				* The Value should be your main user directory (`C:\Users\Your_User_Name`).
+			2. Open Notepad.
+			3. Paste the contents from [the .emacs file from this repository](https://raw.githubusercontent.com/publicus/emacs-org-mode-for-the-laity/master/.emacs ".emacs file content") into the Notepad window.
+			4. In Notepad, click `File -> Save As...`
+			5. Under `File name`, type "`.emacs`"
+			6. Under `Save as type`, choose "All Files" (If you don't do this, Textedit will add "`.txt`" to the filename, which will cause Emacs to ignore it.
+			7. Open Emacs. You'll know that it can find your .emacs file if it asks you at the bottom of the window whether you want to install a package (see below).			
+		* (The other main way to do this is to go to `C:\Users\Your_User_Name\AppData\Roaming`. This is the directory where Emacs on Windows seems to look by default.
+    	* For Windows, you can [alternatively paste the file](https://www.gnu.org/software/emacs/manual/html_node/efaq-w32/Location-of-init-file.html "GNU.org: Naming .emacs in Windows") so that it is named `_emacs`, if your system won't let you name a file starting with a period.
+1. In a text editor (ha, preferably not Emacs), open the `.emacs` file you just saved. Find the code chunk that starts with the line `(setq org-agenda-files (quote (`. Replace the lines below that with the folder(s) where you plan to keep the files you want to use with `org-mode`.
 1. Start Emacs. If Emacs can see the `.emacs` file you moved in the step above, it should ask you whether you would like to install a series of add-ons (Press "Y" on your keyboard for each). 
 1. You may then need to close and re-open Emacs.
 1. If all goes well, when you open Emacs, you should be greeted with some helpful reminder text.
