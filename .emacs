@@ -347,8 +347,15 @@ This function makes the following changes:
 
 (setq org-agenda-search-view-always-boolean t) ;; When searching in org-mode's agenda, don't require explicit '+' symbols (so 'test1 test2' will be seen as '+test1 +test2' when this is set to t)
 
-
-
+;; Get header font sizes to change alongside non-header text when the font is increased or decreased. For a discussion about this, see, e.g., http://stackoverflow.com/a/21525620.
+(custom-set-faces
+  '(org-level-1 ((t (:inherit outline-1 :height 1.0))))
+  '(org-level-2 ((t (:inherit outline-2 :height 1.0))))
+  '(org-level-3 ((t (:inherit outline-3 :height 1.0))))
+  '(org-level-4 ((t (:inherit outline-4 :height 1.0))))
+  '(org-level-5 ((t (:inherit outline-5 :height 1.0))))
+)
+(setq solarized-scale-org-headlines nil)
 
 ;;;;;;;;;;;;;;;
 ;; Misc. other settings
