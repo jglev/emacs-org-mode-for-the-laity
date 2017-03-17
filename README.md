@@ -18,7 +18,7 @@ From [Oxford Living Dictionaries](https://en.oxforddictionaries.com/definition/l
 
 ## Usage
 
-1. Install Emacs
+1. Install Emacs **version 25.1 or higher**
     * For Linux, though your distribution's package manager
     * For OSX, from [Emacs for Mac OSX](https://emacsformacosx.com/ "Installer for Emacs for Mac OSX")
     * For Windows, from the [GNU Project](https://www.gnu.org/software/emacs/download.html#windows "Installer for Emacs for Windows")

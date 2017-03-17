@@ -29,43 +29,28 @@
 ;; Easily list packages in this one central place. You'll be asked automatically whether you'd like to install any packages in this list that aren't currently installed the next time you start Emacs
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;; From http://blog.aaronbieber.com/2015/05/24/from-vim-to-emacs-in-fourteen-days.html: Automatically ensure that a list of packages is installed on startup:
+(setq package-selected-packages
+        (quote
+         (
+           helm ;; For a dashboard
+           flycheck ;; For Syntax checking
+           powerline 
+           solarized-theme ;; This can then be activated with M-x load-theme
+           markdown-mode 
+           markdown-mode+ 
+           darkroom 
+           ivy 
+           scroll-restore ;; For allowing scrolling without moving the cursor once it goes off-screen.
+           org-repo-todo ;; For todo functionality within a repo.
+           org-journal ;; An org-mode-based journal
+           undo-tree
+)))
 
-(defun ensure-package-installed (&rest packages)
-  "Ensure that every package is installed, ask for installation if it’s not.
 
-Return a list of installed packages or nil for every skipped package."
-  (mapcar
-   (lambda (package)
-     (if (package-installed-p package)
-         nil
-       (if (y-or-n-p (format "Package %s is missing. Install it? " package))
-           (package-install package)
-         package)))
-   packages))
-
-;; Make sure to have downloaded archive description.
-(or (file-exists-p package-user-dir)
-    (package-refresh-contents))
-
-;; Activate installed packages
-(package-initialize)
-
-(ensure-package-installed
- 'helm ;; For a dashboard
- 'flycheck ;; For Syntax checking
- 'powerline
- 'solarized-theme ;; This can then be activated with M-x load-theme
- 'markdown-mode
- 'markdown-mode+
- 'darkroom
- 'ivy
- 'scroll-restore ;; For allowing scrolling without moving the cursor once it goes off-screen.
- ;;'org-bullets ;; For nicer bullets (replacing multiple **s with UTF-8 bullets) in org-mode. UPDATE: I've disabled this for now because it slows down org-mode by up to several seconds.
- 'org-repo-todo ;; For todo functionality within a repo.
- 'org-journal ;; An org-mode-based journal
- 'undo-tree
- )
+;; Install any missing packages that are listed in the package-selected-packages variable below. (This is a feature introduced in Emacs 25.1). See, e.g., http://stackoverflow.com/a/39891192
+(unless package-archive-contents
+  (package-refresh-contents))
+(package-install-selected-packages)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; End of package list to automatically install
@@ -294,11 +279,11 @@ This function makes the following changes:
 ;;;;;;;;;;;;;;;
 
 (if (boundp 'org-user-agenda-files)
-	(setq org-agenda-files org-user-agenda-files)
-	(setq org-agenda-files (quote (
-	    ;; ('~' = your home directory)
-		"~/Daily_Logs"
-		"~/Primary_Syncing_Folder/Documents/todo"
+        (setq org-agenda-files org-user-agenda-files)
+        (setq org-agenda-files (quote (
+            ;; ('~' = your home directory)
+                "~/Daily_Logs"
+                "~/Primary_Syncing_Folder/Documents/todo"
 ))))
 
 ;;;;;;;;;;;;;;;
@@ -320,7 +305,7 @@ This function makes the following changes:
 (setq org-todo-keywords
       (quote ((sequence "TODO(t)" "NEXT(n)" "RIGHT_NOW(r)" "SCHEDULED(s)" "|" "DONE(d!)")
               (sequence "SCHEDULED(s@/)" "WAITING(w@/!)" "HOLD(h@/!)" "|" "CANCELLED(c@/!)")
-			  (sequence "|" "TIME_TRACKED(x)")))) ;; TIME_TRACKED is a non-todo but still time-tracked item.
+                          (sequence "|" "TIME_TRACKED(x)")))) ;; TIME_TRACKED is a non-todo but still time-tracked item.
 
 (setq org-todo-keyword-faces
       (quote (("TODO" :foreground "red" :weight bold)
@@ -369,8 +354,8 @@ This function makes the following changes:
 
 ;; When in org-mode, load a function I wrote for facilitating pasting links, and set keyboard commands for it and a related function.
 (add-hook 'org-mode-hook ;; When entering into org-mode...
-	(lambda ()
-		;; Define the function:
+        (lambda ()
+                ;; Define the function:
         (defun laity/org-id-paste-link ()
           "Paste an org-mode link to another line (or other file listed in org-agenda-files), with the prefix \"id:\".
 
@@ -380,9 +365,9 @@ This function makes the following changes:
           (yank)
           (insert "][]]")
           (backward-char 2))
-		
-		(local-set-key (kbd "C-x l") 'org-id-copy)
-		(local-set-key (kbd "C-x L") 'laity/org-id-paste-link))) ;; local-set-key will set the key for the major mode (any buffer in org-mode).
+                
+                (local-set-key (kbd "C-x l") 'org-id-copy)
+                (local-set-key (kbd "C-x L") 'laity/org-id-paste-link))) ;; local-set-key will set the key for the major mode (any buffer in org-mode).
 
 ;; Set new text for emacs' startup "Scratch buffer:"
 (setq initial-scratch-message "Welcome to Emacs, configured for use like a normal text editor, with org-mode built-in!
