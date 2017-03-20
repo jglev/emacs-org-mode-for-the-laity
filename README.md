@@ -28,24 +28,17 @@ From [Oxford Living Dictionaries](https://en.oxforddictionaries.com/definition/l
     	* Go into the unzipped folder, go into the `bin` directory, and double-click on `runemacs`.
     		* If you see a security warning, click "Run".
     		* Emacs on Windows doesn't require you to install anything. Just double-click that `runemacs` program when you want to load Emacs.
-1. Save the `.emacs` file from this repository into your home directory (in Linux and OSX, it should be saved to `~/.emacs` (i.e., `[Your user home folder]/.emacs`).
-	* **For Mac OSX and Linux,** if you are in Firefox, you can download the `.emacs` file [here](https://raw.githubusercontent.com/publicus/emacs-org-mode-for-the-laity/master/.emacs ".emacs file content").  
-		* In Firefox or a similar browswer, right click on the page, and click "Save Page As...". Then save it as "`.emacs`" in your home directory (on a Mac, for example, `/Users/Your_User_Name/`).  
-		* (Your home directory is the directory that includes folders called `Downloads`, `Documents`, `Music`, etc.)
-	* **For Windows,** there are several ways to do this.
-		* I think that the easiest way to do this is to set an "Environment Variable" called "HOME" and point it to `C:\Users\Your_User_Name`, following the instructions [here](www.computerhope.com/issues/ch000549.htm "How to set the path and environment variables in Windows").
-			1. Follow the instructions at the website linked above.
-				* The Varible name should be "`HOME`".
-				* The Value should be your main user directory (`C:\Users\Your_User_Name`).
-			1. Open Notepad.
-			1. Paste the contents from [the .emacs file from this repository](https://raw.githubusercontent.com/publicus/emacs-org-mode-for-the-laity/master/.emacs ".emacs file content") into the Notepad window.
-			1. In Notepad, click `File -> Save As...`
-			1. Under `File name`, type "`.emacs`"
-			1. Under `Save as type`, choose "All Files" (If you don't do this, Textedit will add "`.txt`" to the filename, which will cause Emacs to ignore it.
-			1. Open Emacs. You'll know that it can find your .emacs file if it asks you at the bottom of the window whether you want to install a package (see below).			
-		* If for some reason you can't set an "Environment Variable" as described above, the other main way to do this is to go to `C:\Users\Your_User_Name\AppData\Roaming`. This is the directory where Emacs on Windows 7+ [looks by default](https://www.emacswiki.org/emacs/DotEmacsDotD "Emacs Wiki: 'Dot Emacs Dot D'").
-			* Note that the `AppData` directory may be hidden on your system. If you don't see it, depending on your version of Windows, you may be able to click on the Address Bar at the top of the File Explorer or Save As dialog box and manually type "`C:\Users\Your_User_Name\AppData\`".
+1. Save the contents of the `dotemacs` file from this repository to the location where Emacs will look for it whenever Emacs is launched.
+	1. Open Emacs.
+	1. In Emacs, press the "Meta" key (usually the "Alt" key on your keyboard) at the same time as ":". For most keyboards in the USA, this means that you will be pressing `Alt + Shift + ;`.  
+	You'll know that you pressed the correct keys if the bottom of the Emacs window says `Eval: `.
+	1. In the `Eval: ` textbox at the bottom of the Emacs window, type the following (including the parentheses): `(find-file user-init-file)`. Press `Enter` on your keyboard.  
+	This command tells Emacs to open its configuration file, wherever on your computer it is (its location depends on what Operating System you're using).
+	1. In your web browser, go to the content of the `dotemacs` file from this repository, by [clicking here](https://raw.githubusercontent.com/publicus/emacs-org-mode-for-the-laity/master/dot-emacs "dotemacs raw content").
+	1. Select all of the text from the `dotemacs` file, and copy it to your clipboard).
+	1. Go back to Emacs. Click `Edit -> Paste` to paste the contents from `dotemacs` into the window (Use the point-and-click menu within Emacs for now; by default, Emacs uses different keyboard commands than other programs, so the typical `Control + v` or `Command + v` keyboard shortcut for "Paste" will not work in it at first).
+	1. Close Emacs.
 1. In a text editor (ha, preferably not Emacs; for **Windows, Notepad;** for **OSX, TextEdit;** for **Linux, Pluma, Kate, Gedit, etc.**), open the `.emacs` file you just saved. Find the code chunk that starts with the line `(setq org-agenda-files (quote (`. Replace the lines below that with the folder(s) where you plan to keep the files you want to use with `org-mode`.
-1. Start Emacs. If Emacs can see the `.emacs` file you moved in the step above, it should ask you whether you would like to install a series of add-ons (if it didn't already at some point above) (Press "Y" on your keyboard for each package you are asked about).
-1. Close and then re-open Emacs to let the changes take full effect.
+1. Start Emacs. If Emacs can see the `.emacs` file you moved in the step above, it should ask you whether you would like to install a series of add-ons (if it didn't already at some point above) (Press "Y" on your keyboard for each package you are asked about). You'll see some text (and may see some "Warnings") appear in the Emacs window.
+1. Close and then re-open Emacs one more time to let the changes take full effect.
 1. If all goes well, when you open Emacs, you should be greeted with some helpful text about org-mode.
