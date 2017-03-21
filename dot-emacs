@@ -26,6 +26,17 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Refresh the list of packages
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(unless package-archive-contents
+  (package-refresh-contents))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; End refresh the list of packages
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Easily list packages in this one central place. You'll be asked automatically whether you'd like to install any packages in this list that aren't currently installed the next time you start Emacs
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -46,11 +57,22 @@
            undo-tree
 )))
 
-
-;; Install any missing packages that are listed in the package-selected-packages variable below. (This is a feature introduced in Emacs 25.1). See, e.g., http://stackoverflow.com/a/39891192
-(unless package-archive-contents
-  (package-refresh-contents))
-(package-install-selected-packages)
+(if (version< emacs-version "25.1")
+  (progn
+    (message "Emacs version is below 25.1")
+    
+    ;; Install any missing packages:
+    
+    (dolist (package-name package-selected-packages)
+    (when (not (package-installed-p package-name))
+      (package-install package-name)))    
+  )
+  (progn
+    (message "Emacs version is 25.1 or above.")
+    
+    ;; Install any missing packages that are listed in the package-selected-packages variable below. (This is a feature introduced in Emacs 25.1). See, e.g., http://stackoverflow.com/a/39891192
+    (package-install-selected-packages)
+  ))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; End of package list to automatically install
