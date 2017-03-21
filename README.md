@@ -18,7 +18,7 @@ From [Oxford Living Dictionaries](https://en.oxforddictionaries.com/definition/l
 
 ## Usage
 
-1. Install Emacs **version 25.1 or higher**
+1. Install Emacs (preferably **version 25.1 or higher**):
     * For Linux, though your distribution's package manager
     * For OSX, from [Emacs for Mac OSX](https://emacsformacosx.com/ "Installer for Emacs for Mac OSX")
     * For Windows, from the [GNU Project](https://www.gnu.org/software/emacs/download.html#windows "Installer for Emacs for Windows")
@@ -28,9 +28,9 @@ From [Oxford Living Dictionaries](https://en.oxforddictionaries.com/definition/l
     	* Go into the unzipped folder, go into the `bin` directory, and double-click on `runemacs`.
     		* If you see a security warning, click "Run".
     		* Emacs on Windows doesn't require you to install anything. Just double-click that `runemacs` program when you want to load Emacs.
-1. Save the contents of the `dotemacs` file from this repository to the location where Emacs will look for it whenever Emacs is launched.
+1. Save the contents of the `dotemacs` file from this repository to the location where Emacs will look for it whenever Emacs is launched:
 	1. Open Emacs.
-	1. In Emacs, press the "Meta" key (usually the "Alt" key on your keyboard) at the same time as ":". For most keyboards in the USA, this means that you will be pressing `Alt + Shift + ;`.  
+	1. In Emacs, press the "`Meta`" key (usually the "`Alt`" key on your keyboard) at the same time as "`:`". For most keyboards in the USA, this means that you will be pressing `Alt + Shift + ;`.  
 	You'll know that you pressed the correct keys if the bottom of the Emacs window says `Eval: `.
 	1. In the `Eval: ` textbox at the bottom of the Emacs window, type the following (including the parentheses): `(find-file user-init-file)`. Press `Enter` on your keyboard.  
 	This command tells Emacs to open its configuration file, wherever on your computer it is (its location depends on what Operating System you're using).
@@ -38,7 +38,13 @@ From [Oxford Living Dictionaries](https://en.oxforddictionaries.com/definition/l
 	1. Select all of the text from the `dotemacs` file, and copy it to your clipboard).
 	1. Go back to Emacs. Click `Edit -> Paste` to paste the contents from `dotemacs` into the window (Use the point-and-click menu within Emacs for now; by default, Emacs uses different keyboard commands than other programs, so the typical `Control + v` or `Command + v` keyboard shortcut for "Paste" will not work in it at first).
 	1. Close Emacs.
-1. In a text editor (ha, preferably not Emacs; for **Windows, Notepad;** for **OSX, TextEdit;** for **Linux, Pluma, Kate, Gedit, etc.**), open the `.emacs` file you just saved. Find the code chunk that starts with the line `(setq org-agenda-files (quote (`. Replace the lines below that with the folder(s) where you plan to keep the files you want to use with `org-mode`.
-1. Start Emacs. If Emacs can see the `.emacs` file you moved in the step above, it should ask you whether you would like to install a series of add-ons (if it didn't already at some point above) (Press "Y" on your keyboard for each package you are asked about). You'll see some text (and may see some "Warnings") appear in the Emacs window.
-1. Close and then re-open Emacs one more time to let the changes take full effect.
+1. Install add-ons ("packages") for Emacs:
+	1. Re-open Emacs. 
+	1. If Emacs can see the `.emacs` file you moved in the step above, it should ask you whether you would like to install a series of add-ons (if you are running Emacs lower than version 25.1, it will just start installing the packages), if it didn't already at some point above. You'll see some text (and may see some "Warnings") appear in the Emacs window.
+	1. Once the installation is finished, close emacs again.
+1. Tell Emacs where you plan to store your .org files:
+	1. Open Emacs again. Run the `Meta + :` keyboard command again, and, like above, type the following (including the parentheses): `(find-file user-init-file)`. Press `Enter` on your keyboard.
+	1. Type `Control + F` on your keyboard to search the file, and type `agenda` (to search for the word "agenda"). Find the code chunk that starts with the line `(setq org-agenda-files (quote (`. Replace the lines below that ("`~/Daily_Logs`", "`~/Primary_Syncing_Folder/Documents/todo`") with the folder(s) where you plan to keep the files you want to use with `org-mode` (On Macs and Linux, `~` means your Home directory).
+	1. Close Emacs
+1. Re-open Emacs one more time to let the changes take full effect.
 1. If all goes well, when you open Emacs, you should be greeted with some helpful text about org-mode.
