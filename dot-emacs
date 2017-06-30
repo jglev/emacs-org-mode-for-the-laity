@@ -1,7 +1,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Title: .emacs configuration for people who don't normally use Emacs, but still want to use org-mode.
 ;; Author: Jacob Levernier (except when otherwise noted)
-;; Date: 2017-03-07
+;; Date: 2017-06-30
 ;; License: GPLv3
 ;;    License rationale: 
 ;;        If you remove the code block that beings with "Code block from http://stackoverflow.com/a/36707038" and ends with "End of code block from http://stackoverflow.com/a/36707038", you may consider this released under The 3-Clause BSD License, copyright Jacob Levernier, 2017.
@@ -12,11 +12,12 @@
 ;; Set up the package manager, so that org-mode is available and packages can be easily downloaded and installed from the melpa repository
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
+(prefer-coding-system 'utf-8)
+
 (require 'package)
 
 (add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/"))
 (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
-(add-to-list 'package-archives '("melpa-stable" . "http://stable.melpa.org/packages/"))
 
 (setq package-enable-at-startup nil)
 (package-initialize) ;; Load packages
@@ -55,6 +56,7 @@
            org-repo-todo ;; For todo functionality within a repo.
            org-journal ;; An org-mode-based journal
            undo-tree
+           tabbar
 )))
 
 (if (version< emacs-version "25.1")
@@ -87,6 +89,12 @@
 ;;;;;;;;;;;;;;;
 
 (ivy-mode 1) ;; Enable ivy-mode, which makes menus in Emacs nicer-looking and searchable.
+
+;;;;;;;;;;;;;;;
+;; TabBar-mode
+;;;;;;;;;;;;;;;
+
+(tabbar-mode 1) ;; Enable tabbar-mode, which makes a browser-style tab bar if available buffers appear at the top of the window.
 
 ;;;;;;;;;;;;;;;
 ;; Scroll-restore-mode (for saving your place when you scroll with your mouse)
@@ -131,6 +139,10 @@
 (global-set-key (kbd "C-=") 'text-scale-increase)
 (global-set-key (kbd "C--") 'text-scale-decrease)
 
+;; Do the same as above for font sizing with C-mousewheel-up/down
+(global-set-key (kbd "<C-mouse-4>") 'text-scale-increase)
+(global-set-key (kbd "<C-mouse-5>") 'text-scale-decrease)
+
 ;; Don't display the 'Welcome to GNU Emacs' buffer on startup
 (setq inhibit-startup-message t)
 
@@ -158,7 +170,13 @@
   
   (require 'undo-tree)
   (global-undo-tree-mode)
-  (global-set-key (kbd "C-S-z") 'undo-tree-redo) ;; Map C-o to Open
+  (global-set-key (kbd "C-S-z") 'undo-tree-redo) ;; Map C-S-z to Redo
+  (global-set-key (kbd "C-y") 'undo-tree-redo) ;; Map C-y to Redo
+  
+  ;; Make Ctrl-F4 close the current buffer and ctrl-tab scroll through buffers
+  (global-set-key (kbd "<C-f4>") 'kill-buffer)
+  (global-set-key (kbd "<C-tab>") 'switch-to-next-buffer)
+  (global-set-key (kbd "<C-iso-lefttab>") 'switch-to-prev-buffer)
   
 
   ;; Get isearch-forward to automatically wrap:
@@ -204,21 +222,28 @@
  ;; If there is more than one, they won't work right.
  '(bmkp-last-as-first-bookmark-file "~/.emacs.d/bookmarks")
  '(custom-safe-themes
-   (quote
-	("8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" "d677ef584c6dfc0697901a44b885cc18e206f05114c8a3b7fde674fce6180879" default)))
+	(quote
+	 ("8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" "d677ef584c6dfc0697901a44b885cc18e206f05114c8a3b7fde674fce6180879" default)))
  '(darkroom-margins 0.2)
  '(delete-selection-mode nil)
  '(org-hide-leading-stars t)
  '(org-journal-date-format "%A, %Y-%m-%d")
  '(org-journal-file-format "%Y-%m-%d.org")
  '(org-startup-truncated nil)
+ '(package-selected-packages
+	(quote
+	 (tabbar helm flycheck powerline solarized-theme markdown-mode markdown-mode+ darkroom ivy scroll-restore org-repo-todo org-journal undo-tree)))
  '(scroll-restore-handle-cursor t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- )
+ '(org-level-1 ((t (:inherit outline-1 :height 1.0))))
+ '(org-level-2 ((t (:inherit outline-2 :height 1.0))))
+ '(org-level-3 ((t (:inherit outline-3 :height 1.0))))
+ '(org-level-4 ((t (:inherit outline-4 :height 1.0))))
+ '(org-level-5 ((t (:inherit outline-5 :height 1.0)))))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; End of variable settings made from within Emacs
@@ -249,10 +274,10 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;; Set custom keybindings for moving among windows (since org-mode takes over shift and alt/meta, and I like using the control key for moving quickly over words). The lowercase 's-' is for the Windows key (Not the Shift key (which is S-, with an uppercase S):
-(global-set-key (kbd "s-<right>") 'windmove-right)
-(global-set-key (kbd "s-<left>") 'windmove-left)
-(global-set-key (kbd "s-<up>") 'windmove-up)
-(global-set-key (kbd "s-<down>") 'windmove-down)
+(global-set-key (kbd "C-S-M-<right>") 'windmove-right)
+(global-set-key (kbd "C-S-M-<left>") 'windmove-left)
+(global-set-key (kbd "C-S-M-<up>") 'windmove-up)
+(global-set-key (kbd "C-S-M-<down>") 'windmove-down)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; End of settings for navigating between windows
@@ -355,18 +380,71 @@ This function makes the following changes:
 (setq org-agenda-search-view-always-boolean t) ;; When searching in org-mode's agenda, don't require explicit '+' symbols (so 'test1 test2' will be seen as '+test1 +test2' when this is set to t)
 
 ;; Get header font sizes to change alongside non-header text when the font is increased or decreased. For a discussion about this, see, e.g., http://stackoverflow.com/a/21525620.
-(custom-set-faces
-  '(org-level-1 ((t (:inherit outline-1 :height 1.0))))
-  '(org-level-2 ((t (:inherit outline-2 :height 1.0))))
-  '(org-level-3 ((t (:inherit outline-3 :height 1.0))))
-  '(org-level-4 ((t (:inherit outline-4 :height 1.0))))
-  '(org-level-5 ((t (:inherit outline-5 :height 1.0))))
-)
+
 (setq solarized-scale-org-headlines nil)
+
+;;;;;;;;;;;;;;;
+;; Org-mode syntax
+;;;;;;;;;;;;;;;
+
+;; (setq org-hide-emphasis-markers t) ;; Hide markup (e.g., *bold*, /italics/, etc.). I've decided to comment this out for now, because org-emphasize below does not always act in intuitive ways.
+
+;; Set keyboard shortcuts for C-b (bold), C-u (underline), and C-i (italicize). For a discussion of this, see, e.g., https://emacs.stackexchange.com/questions/27645:
+
+(define-key org-mode-map (kbd "C-b") (
+  lambda () 
+  (interactive) 
+  (org-emphasize ?\*)
+))
+(define-key org-mode-map (kbd "C-i") (
+  lambda () 
+  (interactive) 
+  (org-emphasize ?\/)
+))
+(define-key org-mode-map (kbd "C-u") (
+  lambda () 
+  (interactive) 
+  (org-emphasize ?\_)
+))
+
+(define-key org-mode-map (kbd "S-C-b") (
+  lambda () 
+  (interactive) 
+  (org-emphasize ?\ )
+))
+(define-key org-mode-map (kbd "S-C-i") (
+  lambda () 
+  (interactive) 
+  (org-emphasize ?\ )
+))
+(define-key org-mode-map (kbd "S-C-u") (
+  lambda () 
+  (interactive) 
+  (org-emphasize ?\ )
+))
 
 ;;;;;;;;;;;;;;;
 ;; Misc. other settings
 ;;;;;;;;;;;;;;;
+
+;; Make shift+click highlight text rather than open a menu (see, e.g., https://superuser.com/a/522183):
+(define-key global-map (kbd "<S-down-mouse-1>") 'mouse-save-then-kill)
+
+;; When in org-mode, turn org-indent-mode on by default:
+(add-hook 'org-mode-hook ;; When entering into org-mode...
+  (lambda ()
+    (org-indent-mode 1)))
+
+;; org-indent-mode occasionally needs re-initializing (see here: https://github.com/syl20bnr/spacemacs/issues/2732), so we'll define a function and keybinding to do so:
+(defun jacob/reindent()
+  "Fix org-mode indentations." ;; Inspired by https://github.com/syl20bnr/spacemacs/issues/2732#issuecomment-173704844, but altered from it (it was really just these two steps; my use and invocation are different).
+  (interactive)
+  (org-indent-mode 1)
+  (recenter-top-bottom))
+  
+;; Following http://orgmode.org/manual/TODO-dependencies.html#TODO-dependencies, make org-mode honor Todo dependencies by not allowing something to be marked DONE unless its children have all been addressed.
+(setq org-enforce-todo-dependencies 't)
+(setq org-enforce-todo-checkbox-dependencies 't)
 
 ;; Make the cursor blink, and be a narrow line:
 (blink-cursor-mode 1)
