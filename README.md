@@ -51,9 +51,18 @@ From [Oxford Living Dictionaries](https://en.oxforddictionaries.com/definition/l
 
 ## Changelog
 
-### 2017-06-30
+### 2017-07-05
 
-Implemented the following ideas, many of which from [suggestions by @shaund](https://github.com/publicus/emacs-org-mode-for-the-laity/issues/1 "Issue #1").
+Implemented the following ideas, many of which were from [suggestions by @shaund](https://github.com/publicus/emacs-org-mode-for-the-laity/issues/1 "Issue #1").
+
+- Add `(prefer-coding-system 'utf-8)` to avoid a package installation error; similarly, remove `melpa-stable` from the list of repositories (`melpa` is still listed)
+- Change the keyboard command for moving between emacs sub-windows to `C-S-M` (i.e., `Control-Shift-Meta-ArrowKey`, meaning usually `Control-Shift-Alt-ArrowKey`)
+- Turn on `org-indent` mode
+- Turn on `tabbar` mode, to create a web-browser-like tab-bar on the top of the window with open buffers.
+- Add `Control-mousewheel` zooming
+- Bind `Control-y` to `redo`, alongside `Control-Shift-z`
+- Make `Shift-click` highlight text rather than open a menu
+- Enforce Todo dependencies
 
 ### 2017-03-07
 

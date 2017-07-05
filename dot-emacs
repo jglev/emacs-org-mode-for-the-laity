@@ -100,8 +100,8 @@
 ;; Scroll-restore-mode (for saving your place when you scroll with your mouse)
 ;;;;;;;;;;;;;;;
 
-;;(scroll-restore-mode 1) ;; Change to nil to disable, and 1 to enable, scroll-restore mode by default
-;;(global-set-key (kbd "C-x j") 'scroll-restore-jump-back) ;; Set a keybinding for jumping back when scrolling.
+(scroll-restore-mode 1) ;; Change to nil to disable, and 1 to enable, scroll-restore mode by default
+(global-set-key (kbd "C-x j") 'scroll-restore-jump-back) ;; Set a keybinding for jumping back when scrolling.
 
 ;;;;;;;;;;;;;;;
 ;; Load the Darkroom package (useful for writing prose -- it brings in the margins of the interface to offer less distraction when writing)
@@ -159,10 +159,10 @@
   ;; Enabling orgtbl-mode (via orgstruct-mode). This allows you to type
     ;;  | 1 | 2 | 3 |
     ;;  and press tab for a nicely-formatted ASCII table.
-  ;; Enabling scroll-restore-mode. You can press C-S-z to return to a point after scrolling.
+  ;; Enabling scroll-restore-mode. You can press C-x j to return to a point after scrolling.
   ;;(orgstruct-mode) ;; Following https://www.gnu.org/software/emacs/manual/html_node/org/Tables-in-arbitrary-syntax.html#Tables-in-arbitrary-syntax, enable the use of orgtbl-mode (for tables) without actually turning on all of org-mode.
   ;;(orgtbl-mode) ;; Enable orgtbl-mode, where you can put pipe symbols around something and press Tab and it will format into a nice table for you.
-  ;;(scroll-restore-mode 1)
+  (scroll-restore-mode 1)
   (setq cursor-type '(bar . 2))
   
   (global-set-key (kbd "C-s") 'save-buffer) ;; Map C-s to Save
