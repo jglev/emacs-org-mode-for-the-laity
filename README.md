@@ -48,3 +48,13 @@ From [Oxford Living Dictionaries](https://en.oxforddictionaries.com/definition/l
 	1. Close Emacs
 1. Re-open Emacs one more time to let the changes take full effect.
 1. If all goes well, when you open Emacs, you should be greeted with some helpful text about org-mode.
+
+## Changelog
+
+### 2017-06-30
+
+Implemented the following ideas, many of which from [suggestions by @shaund](https://github.com/publicus/emacs-org-mode-for-the-laity/issues/1 "Issue #1").
+
+### 2017-03-07
+
+Initial posting/release!
