@@ -580,14 +580,16 @@ If you notice that a keyboard shortcut you try to use doesn't work, let me know,
 
 You can highlight text and then press *C-b* to *bold* it. Similarly, you can use *C-i* for /italicizing/ and *C-u* for _underlining_ text. *C-S-b*, *C-S-i*, and *C-S-u* will un-emphasize (un-bold, un-italicize, and un-underline) highlighted text.
 
-*F8* will bring up a clickable file browser sidebar that you can use in addition to the ~File -> Open~ menu.
-
 ** Menus
 
 If you remember even *just the two keyboard shortcuts below*, you can use Emacs with org-mode :)
 
 - *M-x*: Get a searchable pop-up menu (called 'Ivy') of every function in Emacs
 - *C-g*: Cancel a pop-up menu
+
+You can change the font that Emacs uses using the *Options -> Set Default Font...* menu at the top of the window.
+
+*F8* will bring up a clickable file browser sidebar that you can use in addition to the ~File -> Open~ menu.
 
 ** Getting help
 
@@ -597,11 +599,19 @@ If you remember even *just the two keyboard shortcuts below*, you can use Emacs 
 
 ** Switching between windows and open files ('buffers')
 
-(A '*buffer*' in emacs is like a tab in Firefox or Chrome -- it's a file or scratchpad that's currently open)
+(A '*buffer*' in Emacs is like a tab in Firefox or Chrome -- it's a file or scratchpad that's currently open)
 
 - *C-x b*: Switch between buffers
 - *C-x 1*: If you have multiple windows/panes open, switch to just the current one.
 - *windows-key-<up>*, *windows-key-<down>*: If you have multiple windows/panes open, move between them.
+
+** Scrolling
+
+One element of Emacs that sometimes frustrates users is that *the cursor will move when you scroll through a long document.* If you would like to 'bookmark' a part of your document to be able to easily jump back to, you can use *M-x point-to-register*. It will ask you to type a letter (for example, 'a'), to save your place. When you want to jump back to that place in your document, you can use ~M-x jump-to-register~, and then press 'a'.
+
+This means that you can have many bookmarks in your document (from a-z and 0-9, for example)!
+
+Because the ~M-x~ menu is searchable, you can also search for just ~register~ to see what other commands Emacs can use for jumping around a document (and across documents/buffers). For example, ~M-x list-registers~ will list all of the bookmarks you've set across all open documents, along with the letters/numbers you've used to identify them.
 
 ** org-mode shortcuts
 
