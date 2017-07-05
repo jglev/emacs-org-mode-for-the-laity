@@ -392,58 +392,51 @@ This function makes the following changes:
 
 ;; Set keyboard shortcuts for C-b (bold), C-u (underline), and C-i (italicize). For a discussion of this, see, e.g., https://emacs.stackexchange.com/questions/27645:
 
-(defun laity/dostuff(text)
+(defun laity/org-emphasize-with-message-and-highlighting(org-emphasize-character org-emphasize-character-plaintext keybinding-character-for-message)
   (interactive)
-  (org-emphasize text)
+  (org-emphasize org-emphasize-character)
   (exchange-point-and-mark) ;; Re-select the originally-highlighted text
   (setq deactivate-mark nil) ;; Tell emacs to actually show the highlighting.
-  (message "You can un-bold text by deleting the '*'s or pressing C-S-b.")
+  (message "You can un-bold text by deleting the '%s's or pressing C-S-%s." org-emphasize-character-plaintext keybinding-character-for-message))
+  
+(defun laity/org-un-emphasize()
+  (interactive)
+  (org-emphasize ?\ )
+  (exchange-point-and-mark) ;; Re-select the originally-highlighted text
+  (setq deactivate-mark nil) ;; Tell emacs to actually show the highlighting.
 )
 
 
 (define-key org-mode-map (kbd "C-b") (
   lambda()
   (interactive)
-  (laity/dostuff ?\*)
+  (laity/org-emphasize-with-message-and-highlighting ?\* '* 'b)
 ))
-
 (define-key org-mode-map (kbd "C-i") (
-  lambda () 
-  (interactive) 
-  (org-emphasize ?\/)
-  (exchange-point-and-mark) ;; Re-select the originally-highlighted text
-  (setq deactivate-mark nil) ;; Tell emacs to actually show the highlighting.
-  (message "You can un-bold text by deleting the '/'s or pressing C-S-i.")
+  lambda()
+  (interactive)
+  (laity/org-emphasize-with-message-and-highlighting ?\/ '/ 'i)
 ))
 (define-key org-mode-map (kbd "C-u") (
-  lambda () 
-  (interactive) 
-  (org-emphasize ?\_)
-  (exchange-point-and-mark) ;; Re-select the originally-highlighted text
-  (setq deactivate-mark nil) ;; Tell emacs to actually show the highlighting.
-  (message "You can un-bold text by deleting the '_'s or pressing C-S-u.")
+  lambda()
+  (interactive)
+  (laity/org-emphasize-with-message-and-highlighting ?\_ '_ 'u)
 ))
 
 (define-key org-mode-map (kbd "S-C-b") (
   lambda () 
   (interactive) 
-  (org-emphasize ?\ )
-  (exchange-point-and-mark) ;; Re-select the originally-highlighted text
-  (setq deactivate-mark nil) ;; Tell emacs to actually show the highlighting.
+  (laity/org-un-emphasize)
 ))
 (define-key org-mode-map (kbd "S-C-i") (
   lambda () 
   (interactive) 
-  (org-emphasize ?\ )
-  (exchange-point-and-mark) ;; Re-select the originally-highlighted text
-  (setq deactivate-mark nil) ;; Tell emacs to actually show the highlighting.
+  (laity/org-un-emphasize)
 ))
 (define-key org-mode-map (kbd "S-C-u") (
   lambda () 
   (interactive) 
-  (org-emphasize ?\ )
-  (exchange-point-and-mark) ;; Re-select the originally-highlighted text
-  (setq deactivate-mark nil) ;; Tell emacs to actually show the highlighting.
+  (laity/org-un-emphasize)
 ))
 
 ;;;;;;;;;;;;;;;
