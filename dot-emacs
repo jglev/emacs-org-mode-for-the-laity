@@ -392,20 +392,14 @@ This function makes the following changes:
 
 ;; Set keyboard shortcuts for C-b (bold), C-u (underline), and C-i (italicize). For a discussion of this, see, e.g., https://emacs.stackexchange.com/questions/27645:
 
-(defun laity/dostuff(text)
-  (interactive)
-  (org-emphasize text)
+(define-key org-mode-map (kbd "C-b") (
+  lambda () 
+  (interactive) 
+  (org-emphasize ?\*)
   (exchange-point-and-mark) ;; Re-select the originally-highlighted text
   (setq deactivate-mark nil) ;; Tell emacs to actually show the highlighting.
   (message "You can un-bold text by deleting the '*'s or pressing C-S-b.")
-)
-
-
-(define-key org-mode-map (kbd "C-b") (
-  lambda (?\*) 
-  (laity/dostuff ))
-
-
+))
 (define-key org-mode-map (kbd "C-i") (
   lambda () 
   (interactive) 
@@ -453,7 +447,7 @@ This function makes the following changes:
     (org-indent-mode 1)))
 
 ;; org-indent-mode occasionally needs re-initializing (see here: https://github.com/syl20bnr/spacemacs/issues/2732), so we'll define a function and keybinding to do so:
-(defun laity/reindent()
+(defun jacob/reindent()
   "Fix org-mode indentations." ;; Inspired by https://github.com/syl20bnr/spacemacs/issues/2732#issuecomment-173704844, but altered from it (it was really just these two steps; my use and invocation are different).
   (interactive)
   (org-indent-mode 1)
