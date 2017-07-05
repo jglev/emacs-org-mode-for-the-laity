@@ -63,6 +63,7 @@ Implemented the following ideas, many of which were from [suggestions by @shaund
 - Bind `Control-y` to `redo`, alongside `Control-Shift-z`
 - Make `Shift-click` highlight text rather than open a menu
 - Enforce Todo dependencies
+- Add NeoTree for a file browser sidebar (with F8 keybinding)
 
 ### 2017-03-07
 

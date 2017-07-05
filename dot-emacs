@@ -56,6 +56,7 @@
            org-journal ;; An org-mode-based journal
            undo-tree
            tabbar
+           neotree
 )))
 
 (if (version< emacs-version "25.1")
@@ -82,6 +83,12 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Enable other settings for making Emacs' interface easier to use
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;;;;;;;;;;;;;;;
+;; NeoTree (a file browser)
+;;;;;;;;;;;;;;;
+
+(global-set-key [f8] 'neotree-toggle)
 
 ;;;;;;;;;;;;;;;
 ;; Ivy-mode
@@ -570,6 +577,10 @@ Although Emacs doesn't typically use them, this configuration of Emacs has enabl
 If you notice that a keyboard shortcut you try to use doesn't work, let me know, and we can see about adding it.
 
 *C-f* does work for *searching* a file. To jump between matches, you need to keep pressing C-f (instead of <Enter>, like in some text editors).
+
+You can highlight text and then press *C-b* to *bold* it. Similarly, you can use *C-i* for /italicizing/ and *C-u* for _underlining_ text. *C-S-b*, *C-S-i*, and *C-S-u* will un-emphasize (un-bold, un-italicize, and un-underline) highlighted text.
+
+*F8* will bring up a clickable file browser sidebar that you can use in addition to the ~File -> Open~ menu.
 
 ** Menus
 
