@@ -44,14 +44,13 @@
 (setq package-selected-packages
         (quote
          (
-           helm ;; For a dashboard
            flycheck ;; For Syntax checking
            powerline 
            solarized-theme ;; This can then be activated with M-x load-theme
            markdown-mode 
            markdown-mode+ 
            darkroom 
-           ivy 
+           ivy ;; For a dashboard
            ;;scroll-restore ;; For allowing scrolling without moving the cursor once it goes off-screen.
            org-repo-todo ;; For todo functionality within a repo.
            org-journal ;; An org-mode-based journal
@@ -100,8 +99,10 @@
 ;; Scroll-restore-mode (for saving your place when you scroll with your mouse)
 ;;;;;;;;;;;;;;;
 
-(scroll-restore-mode 1) ;; Change to nil to disable, and 1 to enable, scroll-restore mode by default
-(global-set-key (kbd "C-x j") 'scroll-restore-jump-back) ;; Set a keybinding for jumping back when scrolling.
+;; These are commented out because scroll-restore causes an error with org-emphasize: "Error in post-command-hook (scroll-restore-post-command)..."
+
+;;(scroll-restore-mode 1) ;; Change to nil to disable, and 1 to enable, scroll-restore mode by default
+;;(global-set-key (kbd "C-x j") 'scroll-restore-jump-back) ;; Set a keybinding for jumping back when scrolling.
 
 ;;;;;;;;;;;;;;;
 ;; Load the Darkroom package (useful for writing prose -- it brings in the margins of the interface to offer less distraction when writing)
@@ -159,10 +160,8 @@
   ;; Enabling orgtbl-mode (via orgstruct-mode). This allows you to type
     ;;  | 1 | 2 | 3 |
     ;;  and press tab for a nicely-formatted ASCII table.
-  ;; Enabling scroll-restore-mode. You can press C-x j to return to a point after scrolling.
   ;;(orgstruct-mode) ;; Following https://www.gnu.org/software/emacs/manual/html_node/org/Tables-in-arbitrary-syntax.html#Tables-in-arbitrary-syntax, enable the use of orgtbl-mode (for tables) without actually turning on all of org-mode.
   ;;(orgtbl-mode) ;; Enable orgtbl-mode, where you can put pipe symbols around something and press Tab and it will format into a nice table for you.
-  (scroll-restore-mode 1)
   (setq cursor-type '(bar . 2))
   
   (global-set-key (kbd "C-s") 'save-buffer) ;; Map C-s to Save
@@ -232,8 +231,7 @@
  '(org-startup-truncated nil)
  '(package-selected-packages
 	(quote
-	 (tabbar helm flycheck powerline solarized-theme markdown-mode markdown-mode+ darkroom ivy scroll-restore org-repo-todo org-journal undo-tree)))
- ;;'(scroll-restore-handle-cursor t)
+	 (tabbar flycheck powerline solarized-theme markdown-mode markdown-mode+ darkroom ivy org-repo-todo org-journal undo-tree)))
  )
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -297,7 +295,6 @@ This function makes the following changes:
   * Enables orgtbl-mode (via orgstruct-mode). This allows you to type
   | 1 | 2 | 3 |
   and press tab for a nicely-formatted ASCII table.
-  * Enables scroll-restore-mode. You can press C-S-z to return to a point after scrolling.
   * Enables flyspell-mode. This enables red lines under misspelled words. You can middle-click a word to change it.
   * Enables markdown-display-inline-images. This will show images within markdown text, if the images 1) have an absolute path, and 2) do not have any other text in the parentheses portion of the image syntax (e.g., this is correct: '![Description goes here](/full/path/to/image.jpg)'. This is not correct: '![Description goes here](/full/path/to/image.jpg 'Description goes here')').
   * Enables darkroom-mode. This increases margins and font size, to remove distractions when writing.
@@ -308,7 +305,6 @@ This function makes the following changes:
   (darkroom-mode) ;; Bring in the margins
   (orgstruct-mode) ;; Following https://www.gnu.org/software/emacs/manual/html_node/org/Tables-in-arbitrary-syntax.html#Tables-in-arbitrary-syntax, enable the use of orgtbl-mode (for tables) without actually turning on all of org-mode.
   (orgtbl-mode) ;; Enable orgtbl-mode, where you can put pipe symbols around something and press Tab and it will format into a nice table for you.
-  ;;(scroll-restore-mode 1)
   (flyspell-mode) ;; Enable spell-checking red underlines.
   (markdown-display-inline-images) ;; Show markdown images (if they have absolute paths and no text other than the path within the parentheses portion) in the buffer. This can be toggled with M-x markdown-toggle-inline-images
   (load-theme 'solarized-dark)) ;; Make the theme dark
