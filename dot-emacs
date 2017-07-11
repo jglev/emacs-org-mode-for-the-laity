@@ -100,13 +100,15 @@
 ;; TabBar-mode
 ;;;;;;;;;;;;;;;
 
+;; NOTE: To customize the way that the tabbar looks, I recommend making edits through the emacs GUI by using 'M-x customize-group', then selecting 'tabbar', then pressing <enter>.
+
 (tabbar-mode 1) ;; Enable tabbar-mode, which makes a browser-style tab bar if available buffers appear at the top of the window.
 
 ;; Put all tabs into one group, following https://www.emacswiki.org/emacs/TabBarMode
 (setq tabbar-buffer-groups-function
   (lambda ()
     (list "All")))
-
+    
 (global-set-key (kbd "C-t") 'ivy-switch-buffer) ;; Set the keybinding Ctrl+t (like "new tab" in some editors and web browers) to bring up the buffer list.
 
 ;;;;;;;;;;;;;;;
@@ -246,7 +248,8 @@
  '(package-selected-packages
 	(quote
 	 (tabbar flycheck powerline solarized-theme markdown-mode markdown-mode+ darkroom ivy org-repo-todo org-journal undo-tree)))
- )
+ '(tabbar-background-color "dark gray")
+ '(tabbar-separator (quote (0.8))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -256,7 +259,12 @@
  '(org-level-2 ((t (:inherit outline-2 :height 1.0))))
  '(org-level-3 ((t (:inherit outline-3 :height 1.0))))
  '(org-level-4 ((t (:inherit outline-4 :height 1.0))))
- '(org-level-5 ((t (:inherit outline-5 :height 1.0)))))
+ '(org-level-5 ((t (:inherit outline-5 :height 1.0))))
+ '(tabbar-button ((t (:inherit tabbar-default))))
+ '(tabbar-default ((t (:inherit variable-pitch :background "gainsboro" :foreground "dim gray" :box nil :underline nil :height 0.9))))
+ '(tabbar-highlight ((t nil)))
+ '(tabbar-selected ((t (:inherit nil :background "cornsilk" :foreground "black" :underline nil))))
+ '(tabbar-separator ((t (:inherit nil :background "dark gray" :underline nil)))))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; End of variable settings made from within Emacs

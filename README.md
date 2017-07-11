@@ -53,7 +53,9 @@ From [Oxford Living Dictionaries](https://en.oxforddictionaries.com/definition/l
 
 ### 2017-07-11
 
-Added `C-t` keybinding for buffer menu, and configured `tabbar-mode` to set all tabs as part of one group.
+- Added `C-t` keybinding for buffer menu
+- Configured `tabbar-mode` to set all tabs as part of one group
+- Customized the look of the tabbar.
 
 ### 2017-07-05
 
