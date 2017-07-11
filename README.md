@@ -56,7 +56,10 @@ From [Oxford Living Dictionaries](https://en.oxforddictionaries.com/definition/l
 For advanced users who already have an Emacs configuration and want to temporarily try the configuration file from this repository, running the following in the system's Terminal (for OSX or Linux, or in Cygwin or the Linux Shell in Windows) can be useful:
 
 ```
-mkdir --parents /tmp/emacs-home; ln --symbolic --force /absolute/path/to/emacs-org-mode-for-the-laity/dot-emacs /tmp/emacs-home/.emacs; HOME=/tmp/emacs-home; emacs
+mkdir --parents /tmp/emacs-home
+ln --symbolic --force /absolute/path/to/emacs-org-mode-for-the-laity/dot-emacs /tmp/emacs-home/.emacs
+HOME=/tmp/emacs-home
+emacs
 ```
 
 `/absolute/path/to/emacs-org-mode-for-the-laity/dot-emacs` should be changed to wherever the `dot-emacs` file from this repository is located on your computer.
