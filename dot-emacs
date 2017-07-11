@@ -102,6 +102,13 @@
 
 (tabbar-mode 1) ;; Enable tabbar-mode, which makes a browser-style tab bar if available buffers appear at the top of the window.
 
+;; Put all tabs into one group, following https://www.emacswiki.org/emacs/TabBarMode
+(setq tabbar-buffer-groups-function
+  (lambda ()
+    (list "All")))
+
+(global-set-key (kbd "C-t") 'ivy-switch-buffer) ;; Set the keybinding Ctrl+t (like "new tab" in some editors and web browers) to bring up the buffer list.
+
 ;;;;;;;;;;;;;;;
 ;; Scroll-restore-mode (for saving your place when you scroll with your mouse)
 ;;;;;;;;;;;;;;;
