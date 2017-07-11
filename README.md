@@ -51,6 +51,10 @@ From [Oxford Living Dictionaries](https://en.oxforddictionaries.com/definition/l
 
 ## Changelog
 
+### 2017-07-11
+
+Added `C-t` keybinding for buffer menu, and configured `tabbar-mode` to set all tabs as part of one group.
+
 ### 2017-07-05
 
 Implemented the following ideas, many of which were from [suggestions by @shaund](https://github.com/publicus/emacs-org-mode-for-the-laity/issues/1 "Issue #1").
