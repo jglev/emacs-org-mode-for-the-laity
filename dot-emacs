@@ -262,9 +262,10 @@
  '(org-level-5 ((t (:inherit outline-5 :height 1.0))))
  '(tabbar-button ((t (:inherit tabbar-default))))
  '(tabbar-default ((t (:inherit variable-pitch :background "gainsboro" :foreground "dim gray" :box nil :underline nil :height 0.9))))
- '(tabbar-highlight ((t nil)))
+ '(tabbar-highlight ((t (:background "cornsilk"))))
  '(tabbar-selected ((t (:inherit nil :background "cornsilk" :foreground "black" :underline nil))))
- '(tabbar-separator ((t (:inherit nil :background "dark gray" :underline nil)))))
+ '(tabbar-separator ((t (:inherit nil :background "dark gray" :underline nil))))
+ '(tabbar-unselected ((t (:inherit tabbar-default :box (:line-width 1 :color "white" :style released-button))))))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; End of variable settings made from within Emacs
