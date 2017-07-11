@@ -18,6 +18,8 @@ From [Oxford Living Dictionaries](https://en.oxforddictionaries.com/definition/l
 
 ## Usage
 
+### One-time initial setup
+
 1. Install Emacs (preferably **version 25.1 or higher**):
     * For Linux, though your distribution's package manager
     * For OSX, from [Emacs for Mac OSX](https://emacsformacosx.com/ "Installer for Emacs for Mac OSX")
@@ -48,6 +50,18 @@ From [Oxford Living Dictionaries](https://en.oxforddictionaries.com/definition/l
 	1. Close Emacs
 1. Re-open Emacs one more time to let the changes take full effect.
 1. If all goes well, when you open Emacs, you should be greeted with some helpful text about org-mode.
+
+### Advanced users: One method for trying this configuration file quickly
+
+For advanced users who already have an Emacs configuration and want to temporarily try the configuration file from this repository, running the following in the system's Terminal (for OSX or Linux, or in Cygwin or the Linux Shell in Windows) can be useful:
+
+```
+mkdir --parents /tmp/emacs-home; ln --symbolic --force /absolute/path/to/emacs-org-mode-for-the-laity/dot-emacs /tmp/emacs-home/.emacs; HOME=/tmp/emacs-home; emacs
+```
+
+`/absolute/path/to/emacs-org-mode-for-the-laity/dot-emacs` should be changed to wherever the `dot-emacs` file from this repository is located on your computer.
+
+This creates a new directory at `/tmp/emacs-home`, creates a link from the location of this repository on your computer to that new directory, temporarily tells the terminal that that new directory is your Home directory, and starts Emacs.
 
 ## Changelog
 
