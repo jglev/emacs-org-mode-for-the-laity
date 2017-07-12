@@ -237,8 +237,8 @@
  ;; If there is more than one, they won't work right.
  '(bmkp-last-as-first-bookmark-file "~/.emacs.d/bookmarks")
  '(custom-safe-themes
-	(quote
-	 ("8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" "d677ef584c6dfc0697901a44b885cc18e206f05114c8a3b7fde674fce6180879" default)))
+  (quote
+   ("8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" "d677ef584c6dfc0697901a44b885cc18e206f05114c8a3b7fde674fce6180879" default)))
  '(darkroom-margins 0.2)
  '(delete-selection-mode nil)
  '(org-hide-leading-stars t)
@@ -246,8 +246,8 @@
  '(org-journal-file-format "%Y-%m-%d.org")
  '(org-startup-truncated nil)
  '(package-selected-packages
-	(quote
-	 (tabbar flycheck powerline solarized-theme markdown-mode markdown-mode+ darkroom ivy org-repo-todo org-journal undo-tree)))
+  (quote
+   (tabbar flycheck powerline solarized-theme markdown-mode markdown-mode+ darkroom ivy org-repo-todo org-journal undo-tree)))
  '(tabbar-background-color "dark gray")
  '(tabbar-separator (quote (0.8))))
 (custom-set-faces
