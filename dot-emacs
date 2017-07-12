@@ -49,7 +49,7 @@
            solarized-theme ;; This can then be activated with M-x load-theme
            markdown-mode 
            markdown-mode+ 
-           darkroom 
+           ;;darkroom ;; Seems to be missing from Melpa as of 2017-07-12, and so is commented out for now.
            ivy ;; For a dashboard
            ;;scroll-restore ;; For allowing scrolling without moving the cursor once it goes off-screen.
            org-repo-todo ;; For todo functionality within a repo.
@@ -124,7 +124,7 @@
 ;; Load the Darkroom package (useful for writing prose -- it brings in the margins of the interface to offer less distraction when writing)
 ;;;;;;;;;;;;;;;
 
-(require 'darkroom)
+;;(require 'darkroom) ;; Seems to be missing from Melpa as of 2017-07-12, and so is commented out for now.
 
 ;;;;;;;;;;;;;;;
 ;; Powerline (for making the status bar at the bottom of the page more useful)
@@ -247,7 +247,7 @@
  '(org-startup-truncated nil)
  '(package-selected-packages
   (quote
-   (tabbar flycheck powerline solarized-theme markdown-mode markdown-mode+ darkroom ivy org-repo-todo org-journal undo-tree)))
+   (tabbar flycheck powerline solarized-theme markdown-mode markdown-mode+ ivy org-repo-todo org-journal undo-tree)))
  '(tabbar-background-color "dark gray")
  '(tabbar-separator (quote (0.8))))
 (custom-set-faces
@@ -320,12 +320,11 @@ This function makes the following changes:
   and press tab for a nicely-formatted ASCII table.
   * Enables flyspell-mode. This enables red lines under misspelled words. You can middle-click a word to change it.
   * Enables markdown-display-inline-images. This will show images within markdown text, if the images 1) have an absolute path, and 2) do not have any other text in the parentheses portion of the image syntax (e.g., this is correct: '![Description goes here](/full/path/to/image.jpg)'. This is not correct: '![Description goes here](/full/path/to/image.jpg 'Description goes here')').
-  * Enables darkroom-mode. This increases margins and font size, to remove distractions when writing.
   * Changes the theme to solarized-dark.
 " ;; End of docstring (documentation string)
   (interactive) ;; Tell emacs that this function is a command (and should thus be listed in the M-x list of commands).
   (markdown-mode) ;; Turn on markdown syntax highlighting
-  (darkroom-mode) ;; Bring in the margins
+  ;;(darkroom-mode) ;; Bring in the margins ;; Seems to be missing from Melpa as of 2017-07-12, and so is commented out for now.
   (orgstruct-mode) ;; Following https://www.gnu.org/software/emacs/manual/html_node/org/Tables-in-arbitrary-syntax.html#Tables-in-arbitrary-syntax, enable the use of orgtbl-mode (for tables) without actually turning on all of org-mode.
   (orgtbl-mode) ;; Enable orgtbl-mode, where you can put pipe symbols around something and press Tab and it will format into a nice table for you.
   (flyspell-mode) ;; Enable spell-checking red underlines.
